@@ -84,11 +84,11 @@ class MemeGenerator extends Component {
     const {bgImage, topText, bottomText, fontSize} = this.state
     return (
       <MemeGeneratorBgContainer>
-        <MemeGeneratorContainer data-testid="meme">
+        <MemeGeneratorContainer>
           <MemeGeneratorMainHeadingSmall>
             Meme Generator
           </MemeGeneratorMainHeadingSmall>
-          <ImageContainer bgImage={bgImage}>
+          <ImageContainer bgImage={bgImage} data-testid="meme">
             <TopText fontSize={fontSize}>{topText}</TopText>
             <BottomText fontSize={fontSize}>{bottomText}</BottomText>
           </ImageContainer>
@@ -97,39 +97,24 @@ class MemeGenerator extends Component {
               Meme Generator
             </MemeGeneratorMainHeadingLarge>
             <Label htmlFor="imageUrl">Image URL</Label>
-            <Input
-              type="url"
-              id="imageUrl"
-              value={bgImage}
-              onChange={this.onChangeBgImage}
-            />
+            <Input type="url" id="imageUrl" onChange={this.onChangeBgImage} />
             <Label htmlFor="topText">Top Text</Label>
-            <Input
-              type="text"
-              id="topText"
-              value={topText}
-              onChange={this.onChangeTopText}
-            />
+            <Input type="text" id="topText" onChange={this.onChangeTopText} />
             <Label htmlFor="bottomText">Bottom Text</Label>
             <Input
               type="text"
               id="bottomText"
-              value={bottomText}
               onChange={this.onChangeBottomText}
             />
             <Label htmlFor="fontSizes">Font Size</Label>
-            <SelectInput
-              id="fontSizes"
-              value={fontSize}
-              onChange={this.onChangeFontSize}
-            >
+            <SelectInput id="fontSizes" onChange={this.onChangeFontSize}>
               {fontSizesOptionsList.map(eachOption => (
-                <option id={eachOption.optionId}>
+                <option id={eachOption.optionId} key={eachOption.optionId}>
                   {eachOption.displayText}
                 </option>
               ))}
             </SelectInput>
-            <GenerateButton type="button" onClick={this.onClickGenerateMeme}>
+            <GenerateButton type="submit" onSubmit={this.onClickGenerateMeme}>
               Generate
             </GenerateButton>
           </MemeGeneratorForm>

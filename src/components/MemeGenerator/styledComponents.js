@@ -25,7 +25,7 @@ export const MemeGeneratorContainer = styled(MemeGeneratorBgContainer)`
     width: 1180px;
   }
 `
-export const MemeGeneratorForm = styled.div`
+export const MemeGeneratorForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -36,21 +36,26 @@ export const MemeGeneratorForm = styled.div`
   }
 `
 export const ImageContainer = styled.div`
-  height: 30%;
+  height: 40%;
   width: 80%;
   background-image: url(${props => props.bgImage});
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
   @media (min-width: 768px) {
     order: 2;
-    height: 40%;
-    width: 40%;
+    height: 80%;
+    width: 60%;
   }
 `
 export const TopText = styled.p`
   width: 98%;
   font-family: 'Open-Sans';
   color: #ffffff;
-  font-size: ${props => props.fontSize};
+  font-size: ${props => props.fontSize}px;
+  text-align: center;
 `
 
 export const BottomText = styled(TopText)``
